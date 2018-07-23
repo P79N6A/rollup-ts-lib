@@ -1,0 +1,24 @@
+{
+  "name": "rollup-ts-lib",
+  "version": "0.0.0",
+  "main": "dist/rollup-ts-lib.cjs.js",
+  "module": "dist/rollup-ts-lib.esm.js",
+  "browser": "dist/rollup-ts-lib.umd.js",
+  "devDependencies": {
+    "rollup": "^0.60.0",
+    "rollup-plugin-commonjs": "^9.1.0",
+    "rollup-plugin-node-resolve": "^3.0.0"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w"
+  },
+  "files": [
+    "dist"
+  ],
+  "rollup": {
+    "src": "src/index.js",
+    "umdName": "RollupTSLib"
+  },
+  "private": true
+}
