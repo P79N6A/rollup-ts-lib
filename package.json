@@ -5,14 +5,19 @@
   "module": "dist/rollup-ts-lib.esm.js",
   "browser": "dist/rollup-ts-lib.umd.js",
   "scripts": {
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "test": "jest"
   },
   "devDependencies": {
+    "@types/jest": "^23.3.0",
+    "jest": "^23.4.1",
     "rollup": "^0.60.0",
     "rollup-plugin-commonjs": "^9.1.0",
     "rollup-plugin-node-resolve": "^3.0.0",
     "rollup-plugin-sourcemaps": "^0.4.2",
     "rollup-plugin-typescript2": "^0.16.1",
+    "ts-jest": "^23.0.1",
+    "ts-node": "^7.0.0",
     "tslint": "^5.11.0",
     "tslint-config-airbnb": "^5.9.2",
     "typescript": "^2.9.2"
@@ -20,9 +25,39 @@
   "files": [
     "dist"
   ],
+  "engines": {
+    "node": ">=6.0.0"
+  },
   "rollup": {
     "src": "src/index.ts",
     "umdName": "RollupTSLib"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/test/"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 90,
+        "functions": 95,
+        "lines": 95,
+        "statements": 95
+      }
+    },
+    "collectCoverage": true
   },
   "private": true
 }
