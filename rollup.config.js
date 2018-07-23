@@ -1,5 +1,6 @@
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
+import sourceMaps from 'rollup-plugin-sourcemaps';
 import typescript from 'rollup-plugin-typescript2';
 import pkg from './package.json';
 
@@ -11,10 +12,12 @@ export default [
             file: pkg.browser,
             format: 'umd'
         },
+        sourceMap: true,
         plugins: [
             resolve(),
             commonjs(),
             typescript(),
+            sourceMaps(),
         ]
     },
     {
