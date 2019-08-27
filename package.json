@@ -1,36 +1,36 @@
 {
   "name": "rollup-ts-lib",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "dist/rollup-ts-lib.cjs.js",
   "module": "dist/rollup-ts-lib.esm.js",
   "browser": "dist/rollup-ts-lib.umd.js",
+  "rollup": {
+    "src": "src/index.ts",
+    "umdName": "RollupTSLib"
+  },
   "scripts": {
     "build": "rollup -c",
     "test": "jest"
   },
+  "dependencies": {
+    "lodash": "^4.17.15"
+  },
   "devDependencies": {
-    "@types/jest": "^23.3.0",
-    "jest": "^23.4.1",
-    "rollup": "^0.60.0",
-    "rollup-plugin-commonjs": "^9.1.0",
-    "rollup-plugin-node-resolve": "^3.0.0",
-    "rollup-plugin-sourcemaps": "^0.4.2",
-    "rollup-plugin-typescript2": "^0.16.1",
-    "ts-jest": "^23.0.1",
-    "ts-node": "^7.0.0",
-    "tslint": "^5.11.0",
-    "tslint-config-airbnb": "^5.9.2",
-    "typescript": "^2.9.2"
+    "@types/lodash": "^4.14.137",
+    "@types/jest": "^24.0.18",
+    "jest": "^24.9.0",
+    "rollup": "^1.20.2",
+    "rollup-plugin-commonjs": "^10.0.2",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-typescript2": "^0.23.0",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.5.3"
   },
   "files": [
     "dist"
   ],
   "engines": {
-    "node": ">=6.0.0"
-  },
-  "rollup": {
-    "src": "src/index.ts",
-    "umdName": "RollupTSLib"
+    "node": "10"
   },
   "jest": {
     "transform": {

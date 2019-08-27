@@ -1,34 +1,32 @@
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
-import sourceMaps from 'rollup-plugin-sourcemaps';
 import typescript from 'rollup-plugin-typescript2';
 import pkg from './package.json';
+
+const plugins = [
+    resolve(),
+    commonjs(),
+    typescript(),
+];
 
 export default [
     {
         input: pkg.rollup.src,
+        plugins,
         output: {
             name: pkg.rollup.umdName,
             file: pkg.browser,
-            format: 'umd'
+            format: 'umd',
+            sourcemap: true,
         },
-        sourceMap: true,
-        plugins: [
-            resolve(),
-            commonjs(),
-            typescript(),
-            sourceMaps(),
-        ]
     },
     {
         input: pkg.rollup.src,
+        plugins,
         external: [],
         output: [
-            { file: pkg.main, format: 'cjs' },
-            { file: pkg.module, format: 'es' }
+            { file: pkg.main, format: 'cjs', sourcemap: true },
+            { file: pkg.module, format: 'es', sourcemap: true }
         ],
-        plugins: [
-            typescript(),
-        ]
     }
 ];
